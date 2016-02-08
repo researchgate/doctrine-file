@@ -1,7 +1,7 @@
 {
   "name": "doctrine-file",
   "version": "0.1.0",
-  "description": "File Extractor for the Doctrine JSDoc Parser",
+  "description": "File-Reader for the Doctrine JSDoc Parser",
   "main": "lib/index.js",
   "scripts": {
     "check": "npm run lint && npm run flow && npm test",
@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production babel src --out-dir lib --ignore __tests__",
     "flow": "flow",
     "lint": "eslint src",
+    "precommit": "npm run check",
     "prepublish": "npm run check && npm run clean && npm run build",
     "test": "cross-env NODE_ENV=test mocha tests/setup.js '**/__tests__/*.spec.js' --compilers js:babel-register"
   },
@@ -49,6 +50,7 @@
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^5.0.0",
     "flow-bin": "^0.21.0",
+    "husky": "^0.10.2",
     "mocha": "^2.3.4",
     "rimraf": "^2.5.0"
   },
