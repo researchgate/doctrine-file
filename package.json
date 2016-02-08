@@ -1,0 +1,56 @@
+{
+  "name": "doctrine-file",
+  "version": "0.1.0",
+  "description": "File Extractor for the Doctrine JSDoc Parser",
+  "main": "lib/index.js",
+  "scripts": {
+    "check": "npm run lint && npm run flow && npm test",
+    "clean": "rimraf lib",
+    "build": "cross-env NODE_ENV=production babel src --out-dir lib --ignore __tests__",
+    "flow": "flow",
+    "lint": "eslint src",
+    "prepublish": "npm run check && npm run clean && npm run build",
+    "test": "cross-env NODE_ENV=test mocha tests/setup.js '**/__tests__/*.spec.js' --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/researchgate/doctrine-file.git"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "doctrine",
+    "jsdoc",
+    "parser"
+  ],
+  "author": "Daniel Tschinder <daniel@tschinder.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/researchgate/doctrine-file/issues"
+  },
+  "homepage": "https://github.com/researchgate/doctrine-file#readme",
+  "peerDependencies": {
+    "doctrine": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-eslint": "^5.0.0-beta10",
+    "babel-plugin-syntax-flow": "^6.5.0",
+    "babel-plugin-transform-flow-strip-types": "^6.5.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-stage-1": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "chai": "^3.4.1",
+    "check-chai": "^0.0.1",
+    "cross-env": "^1.0.7",
+    "doctrine": "^1.1.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.0",
+    "flow-bin": "^0.21.0",
+    "mocha": "^2.3.4",
+    "rimraf": "^2.5.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,20 @@
+/**
+ * Description
+ * @return A return value
+ */
+
+ /**
+
+  * Invalid line above
+  */
+
+   "/**
+    * This is in string
+    * @return A return value
+    */"
+
+* This line is ignored, as no start appeared before
+
+/**
+ * This is invalid and won't show up
+ * @return A return value

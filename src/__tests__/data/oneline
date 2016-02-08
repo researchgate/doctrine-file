@@ -1,0 +1,5 @@
+/** @return A return value */
+
+'/** Invalid as within string */'
+
+/** Invalid as not terminated
