@@ -5,7 +5,7 @@
 
 ## Installation
 
-You can install Doctrine-File using [npm](https://npmjs.com):
+You can install Doctrine-File using [npm](https://www.npmjs.com/package/doctrine-file):
 
 ```
 $ npm install doctrine-file --save-dev
