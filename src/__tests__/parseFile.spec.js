@@ -6,7 +6,7 @@ import parseFile from '../parseFile';
 
 describe('parseFile', () => {
   it('Single line comments', done => {
-    parseFile(`${__dirname}/data/oneline`, (err, comments) => {
+    parseFile(`${__dirname}/data/singleline`, (err, comments) => {
       if (err) done(err);
       check(done, () => {
         expect(err).to.be.null;

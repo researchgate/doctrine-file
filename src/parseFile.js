@@ -3,17 +3,17 @@
 import fs from 'fs';
 import Extractor from './Extractor';
 
-export default (file: string, opts: ?DoctrineOptions, callback: Function): void => {
-  if (!callback && typeof opts === 'function') {
-    callback = opts;
-    opts = null;
+export default (file: string, options: ?DoctrineOptions, callback: Function): void => {
+  if (!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
   }
 
   const collected = [];
   fs.createReadStream(file, { encoding: 'utf8' })
     .on('error', callback)
     // $FlowIssue This is correct
-    .pipe(new Extractor(opts))
+    .pipe(new Extractor(options))
     .on('error', callback)
     .on('data', data => collected.push(data))
     .on('finish', () => callback(null, collected));
