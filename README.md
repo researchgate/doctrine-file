@@ -16,7 +16,7 @@ $ npm install doctrine-file --save-dev
 Import doctrine-File inside of your JavaScript:
 
 ```js
-import { parseFile } from 'doctrine-file';
+import { parseFile, parseFileContent } from 'doctrine-file';
 ```
 
 ### parseFile(file[, options], callback)
@@ -47,8 +47,6 @@ parseFile('somefile.js', (err, comments) => {
 * `content` String | Buffer Content of a complete file to be parsed
 * `options` Object
     * All options that [doctrine.parse][1] supports, except unwrap which can't be changed.
-
-When the file cannot be read an `Error` will be thrown.
 
 Here's a simple example:
 
