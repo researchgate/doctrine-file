@@ -1,5 +1,4 @@
 /* global describe, it */
-/* eslint-disable no-unused-expressions */
 
 import { expect } from 'chai';
 import fs from 'fs';

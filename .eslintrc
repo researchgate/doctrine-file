@@ -4,5 +4,8 @@
   "globals": {
     "DoctrineOptions": false,
     "CommentObject": false
+  },
+  "rules": {
+    "newline-per-chained-call": 0
   }
 }
