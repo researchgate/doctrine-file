@@ -1,5 +1,4 @@
 /* global describe, it */
-/* eslint-disable no-unused-expressions */
 
 import { expect, check } from 'chai';
 import parseFile from '../parseFile';
@@ -9,7 +8,7 @@ describe('parseFile', () => {
     parseFile(`${__dirname}/data/singleline`, (err, comments) => {
       if (err) done(err);
       check(done, () => {
-        expect(err).to.be.null;
+        expect(err).to.be.null();
         expect(comments).to.be.instanceof(Array);
         expect(comments).to.have.length(1);
         expect(comments).to.deep.equal([{
@@ -30,7 +29,7 @@ describe('parseFile', () => {
     parseFile(`${__dirname}/data/multiline`, (err, comments) => {
       if (err) done(err);
       check(done, () => {
-        expect(err).to.be.null;
+        expect(err).to.be.null();
         expect(comments).to.be.instanceof(Array);
         expect(comments).to.have.length(1);
         expect(comments).to.deep.equal([{
