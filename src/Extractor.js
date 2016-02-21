@@ -19,6 +19,22 @@ export default class Extractor extends Transform {
     this.opts = opts;
   }
 
+  _resetChunk(): void {
+    this.unfinishedChunk = [];
+  }
+
+  _addLine(line: string, reset: boolean = false): void {
+    if (reset) this._resetChunk();
+    this.unfinishedChunk.push(line);
+  }
+
+  _getRawCommentAndReset(): string {
+    const comment = this.unfinishedChunk.join('\n');
+    this._resetChunk();
+
+    return comment;
+  }
+
   _consumeLine(line: string): ?CommentObject {
     const match = line.match(jsdoc.singleLine);
     if (match) {
@@ -26,22 +42,23 @@ export default class Extractor extends Transform {
       return this._addDoc(match[1]);
     } else if (line.match(jsdoc.start)) {
       // start multiline
-      this.unfinishedChunk = [line];
+      this._addLine(line, true);
     } else if (this.unfinishedChunk.length) {
       if (line.match(jsdoc.end)) {
         // end multiline
-        const comment = this._addDoc([...this.unfinishedChunk, line].join('\n'));
-        this.unfinishedChunk = [];
+        this._addLine(line);
 
-        return comment;
+        return this._addDoc(this._getRawCommentAndReset());
       } else if (line.match(jsdoc.line)) {
         // line multiline
-        this.unfinishedChunk.push(line);
+        this._addLine(line);
       } else {
         // invalid line inbetween jsdoc
-        this.unfinishedChunk = [];
+        this._resetChunk();
       }
     }
+
+    return null;
   }
 
   _addDoc(docBlock: string): CommentObject {
