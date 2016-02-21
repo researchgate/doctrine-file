@@ -1,6 +1,6 @@
 {
   "name": "doctrine-file",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "File-Reader for the Doctrine JSDoc Parser",
   "main": "lib/index.js",
   "scripts": {
