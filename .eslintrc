@@ -1,11 +1,11 @@
 {
-  "extends": "airbnb/base",
+  "extends": "airbnb-base",
   "parser": "babel-eslint",
   "globals": {
     "DoctrineOptions": false,
     "CommentObject": false
   },
   "rules": {
-    "newline-per-chained-call": 0
+    "no-underscore-dangle": 0
   }
 }
