@@ -36,9 +36,7 @@ Here's a simple example:
 parseFile('somefile.js', (err, comments) => {
   if (err) throw err;
 
-  for (let comment of comments) {
-    console.log(comment)
-  }
+  comments.forEach(console.log);
 });
 ```
 
@@ -55,9 +53,7 @@ const content = fs.readFileSync('somefile.js', 'utf-8');
 
 const comments = parseFileContent(content);
 
-for (let comment of comments) {
-  console.log(comment)
-}
+comments.forEach(console.log);
 ```
 
 ## License
