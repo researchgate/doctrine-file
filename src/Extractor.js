@@ -70,7 +70,7 @@ export default class Extractor extends Transform {
   }
 
   _transform(chunk: string, encoding: string, callback: Function): void {
-    const lines = chunk.toString().split(/\n/);
+    const lines = chunk.toString().split(/\r?\n/);
 
     while (lines.length) {
       this._consumeLine(lines.shift());
@@ -81,7 +81,7 @@ export default class Extractor extends Transform {
 
   extract(content: string): Array<CommentObject> {
     const comments = [];
-    const lines = content.toString().split(/\n/);
+    const lines = content.toString().split(/\r?\n/);
 
     while (lines.length) {
       const comment = this._consumeLine(lines.shift());
