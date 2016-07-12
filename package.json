@@ -33,9 +33,6 @@
     "url": "https://github.com/researchgate/doctrine-file/issues"
   },
   "homepage": "https://github.com/researchgate/doctrine-file#readme",
-  "peerDependencies": {
-    "doctrine": "^1.0.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.4.5",
     "babel-eslint": "^6.0.0",
@@ -49,7 +46,6 @@
     "check-chai": "^0.0.1",
     "cross-env": "^1.0.7",
     "dirty-chai": "^1.2.2",
-    "doctrine": "^1.1.0",
     "eslint": "^3.0.0",
     "eslint-config-airbnb-base": "^4.0.0",
     "eslint-plugin-import": "^1.8.0",
@@ -58,5 +54,7 @@
     "mocha": "^2.3.4",
     "rimraf": "^2.5.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "doctrine": "^1.0.0"
+  }
 }
