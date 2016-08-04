@@ -1,53 +1,43 @@
-/* global describe, it */
-
-import { expect, check } from 'chai';
+import test from 'ava';
 import parseFile from '../parseFile';
 
-describe('parseFile', () => {
-  function test(lineending) {
-    it(`Single line comments (${lineending})`, done => {
-      parseFile(`${__dirname}/data/singleline_${lineending}`, (err, comments) => {
-        if (err) done(err);
-        check(done, () => {
-          expect(err).to.be.null();
-          expect(comments).to.be.instanceof(Array);
-          expect(comments).to.have.length(1);
-          expect(comments).to.deep.equal([{
-            description: '',
-            tags: [
-              {
-                title: 'return',
-                description: 'A return value',
-                type: null,
-              },
-            ],
-          }]);
-        });
-      });
+function createTests(lineending) {
+  test.cb(`Single line comments (${lineending})`, t => {
+    t.plan(2);
+    parseFile(`${__dirname}/data/singleline_${lineending}`, (err, comments) => {
+      t.ifError(err);
+      t.deepEqual(comments, [{
+        description: '',
+        tags: [
+          {
+            title: 'return',
+            description: 'A return value',
+            type: null,
+          },
+        ],
+      }]);
+      t.end();
     });
+  });
 
-    it(`Multi line comments (${lineending})`, done => {
-      parseFile(`${__dirname}/data/multiline_${lineending}`, (err, comments) => {
-        if (err) done(err);
-        check(done, () => {
-          expect(err).to.be.null();
-          expect(comments).to.be.instanceof(Array);
-          expect(comments).to.have.length(1);
-          expect(comments).to.deep.equal([{
-            description: 'Description',
-            tags: [
-              {
-                title: 'return',
-                description: 'A return value',
-                type: null,
-              },
-            ],
-          }]);
-        });
-      });
+  test.cb(`Multi line comments (${lineending})`, t => {
+    t.plan(2);
+    parseFile(`${__dirname}/data/multiline_${lineending}`, (err, comments) => {
+      t.ifError(err);
+      t.deepEqual(comments, [{
+        description: 'Description',
+        tags: [
+          {
+            title: 'return',
+            description: 'A return value',
+            type: null,
+          },
+        ],
+      }]);
+      t.end();
     });
-  }
+  });
+}
 
-  test('lf');
-  test('crlf');
-});
+createTests('lf');
+createTests('crlf');

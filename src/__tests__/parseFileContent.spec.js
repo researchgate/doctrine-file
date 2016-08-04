@@ -1,46 +1,40 @@
-/* global describe, it */
-
-import { expect } from 'chai';
+import test from 'ava';
 import fs from 'fs';
 import parseFileContent from '../parseFileContent';
 
-describe('parseFileContent', () => {
-  function test(lineending) {
-    it(`Single line comments (${lineending})`, () => {
-      const content = fs.readFileSync(`${__dirname}/data/singleline_${lineending}`);
-      const comments = parseFileContent(content);
-      expect(comments).to.be.instanceof(Array);
-      expect(comments).to.have.length(1);
-      expect(comments).to.deep.equal([{
-        description: '',
-        tags: [
-          {
-            title: 'return',
-            description: 'A return value',
-            type: null,
-          },
-        ],
-      }]);
-    });
+function createTests(lineending) {
+  test(`Single line comments (${lineending})`, t => {
+    const content = fs.readFileSync(`${__dirname}/data/singleline_${lineending}`);
+    const comments = parseFileContent(content);
 
-    it(`Multi line comments (${lineending})`, () => {
-      const content = fs.readFileSync(`${__dirname}/data/multiline_${lineending}`);
-      const comments = parseFileContent(content);
-      expect(comments).to.be.instanceof(Array);
-      expect(comments).to.have.length(1);
-      expect(comments).to.deep.equal([{
-        description: 'Description',
-        tags: [
-          {
-            title: 'return',
-            description: 'A return value',
-            type: null,
-          },
-        ],
-      }]);
-    });
-  }
+    t.deepEqual(comments, [{
+      description: '',
+      tags: [
+        {
+          title: 'return',
+          description: 'A return value',
+          type: null,
+        },
+      ],
+    }]);
+  });
 
-  test('lf');
-  test('crlf');
-});
+  test(`Multi line comments (${lineending})`, t => {
+    const content = fs.readFileSync(`${__dirname}/data/multiline_${lineending}`);
+    const comments = parseFileContent(content);
+
+    t.deepEqual(comments, [{
+      description: 'Description',
+      tags: [
+        {
+          title: 'return',
+          description: 'A return value',
+          type: null,
+        },
+      ],
+    }]);
+  });
+}
+
+createTests('lf');
+createTests('crlf');
