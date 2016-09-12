@@ -2,7 +2,7 @@ import test from 'ava';
 import parseFile from '../parseFile';
 
 function createTests(lineending) {
-  test.cb(`Single line comments (${lineending})`, t => {
+  test.cb(`Single line comments (${lineending})`, (t) => {
     t.plan(2);
     parseFile(`${__dirname}/data/singleline_${lineending}`, (err, comments) => {
       t.ifError(err);
@@ -20,7 +20,7 @@ function createTests(lineending) {
     });
   });
 
-  test.cb(`Multi line comments (${lineending})`, t => {
+  test.cb(`Multi line comments (${lineending})`, (t) => {
     t.plan(2);
     parseFile(`${__dirname}/data/multiline_${lineending}`, (err, comments) => {
       t.ifError(err);
