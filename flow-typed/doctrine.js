@@ -9,7 +9,7 @@ type DoctrineOptions = {
   tags?: Array<string>,
   recoverable?: boolean,
   sloppy?: boolean,
-  lineNumberes?: boolean,
+  lineNumbers?: boolean,
 };
 
 declare module 'doctrine' {

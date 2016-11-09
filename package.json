@@ -4,15 +4,16 @@
   "description": "File-Reader for the Doctrine JSDoc Parser",
   "main": "lib/index.js",
   "scripts": {
-    "check": "npm run lint && npm run flow && npm test",
     "clean": "rimraf lib",
+    "coverage": "nyc report --reporter=json && codecov -f coverage/coverage-final.json",
     "build": "babel src --out-dir lib --ignore __tests__",
     "flow": "flow",
     "lint": "eslint src",
-    "precommit": "npm run check",
-    "preversion": "npm run check",
+    "precommit": "npm test",
+    "preversion": "npm test",
     "prepublish": "npm run clean && npm run build",
-    "test": "ava",
+    "test": "npm run lint && npm run flow && npm run test-only",
+    "test-only": "BABEL_ENV=test nyc ava",
     "watch": "babel src --out-dir lib --ignore __tests__ --watch"
   },
   "repository": {
@@ -37,25 +38,36 @@
     "ava": "^0.16.0",
     "babel-cli": "^6.14.0",
     "babel-eslint": "^7.0.0",
+    "babel-plugin-istanbul": "^2.0.3",
     "babel-plugin-syntax-flow": "^6.13.0",
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
     "babel-preset-latest": "^6.14.0",
     "babel-preset-stage-2": "^6.13.0",
     "babel-register": "^6.14.0",
+    "codecov": "^1.0.1",
     "eslint": "^3.0.0",
     "eslint-config-airbnb-base": "^10.0.0",
     "eslint-plugin-import": "^2.0.1",
     "flow-bin": "^0.34.0",
     "husky": "^0.11.1",
+    "nyc": "^8.4.0",
     "rimraf": "^2.5.0"
   },
   "dependencies": {
     "doctrine": "^1.0.0"
   },
   "ava": {
+    "babel": "inherit"
+  },
+  "nyc": {
+    "all": true,
     "require": [
       "babel-register"
     ],
-    "babel": "inherit"
+    "include": [
+      "src/"
+    ],
+    "instrument": false,
+    "sourceMap": false
   }
 }
