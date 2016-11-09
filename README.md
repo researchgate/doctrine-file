@@ -1,7 +1,8 @@
 # Doctrine-File
 ###### File-Reader for the [Doctrine][1] JSDoc Parser
 
-[![Build Status](https://travis-ci.org/researchgate/doctrine-file.svg?branch=master)](https://travis-ci.org/researchgate/doctrine-file)
+[![Build Status](https://travis-ci.org/researchgate/doctrine-file.svg?branch=master)](https://travis-ci.org/researchgate/doctrine-file) [![codecov](https://codecov.io/gh/researchgate/doctrine-file/branch/master/graph/badge.svg)](https://codecov.io/gh/researchgate/doctrine-file)
+
 
 ## Installation
 
