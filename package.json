@@ -54,7 +54,7 @@
     "rimraf": "^2.5.0"
   },
   "dependencies": {
-    "doctrine": "^1.0.0"
+    "doctrine": "^2.0.0"
   },
   "ava": {
     "babel": "inherit"
