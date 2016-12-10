@@ -1,11 +1,11 @@
 {
   "presets": [
-    ["latest", { "es2015": { "loose": true } }],
-    "stage-2"
+    ["env", { "targets": { "node": 4 } }]
   ],
   "plugins": [
-    "syntax-flow",
-    "transform-flow-strip-types"
+    "transform-class-properties",
+    "transform-flow-strip-types",
+    "transform-object-rest-spread"
   ],
   "env": {
     "test": {
