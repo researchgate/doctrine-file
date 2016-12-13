@@ -42,7 +42,7 @@
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
-    "babel-preset-env": "^1.0.2",
+    "babel-preset-env": "^1.1.1",
     "babel-register": "^6.14.0",
     "codecov": "^1.0.1",
     "eslint": "^3.0.0",
