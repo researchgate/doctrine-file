@@ -12,7 +12,6 @@ export default (file: string, options: ?DoctrineOptions, callback: Function): vo
   const collected = [];
   fs.createReadStream(file, { encoding: 'utf8' })
     .on('error', callback)
-    // $FlowIssue This is correct
     .pipe(new Extractor(options))
     .on('error', callback)
     .on('data', data => collected.push(data))
