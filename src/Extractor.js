@@ -10,7 +10,6 @@ const jsdoc = {
 };
 
 export default class Extractor extends Transform {
-
   unfinishedChunk: Array<string> = [];
   opts: ?DoctrineOptions = {};
 

@@ -3,14 +3,19 @@
 import fs from 'fs';
 import Extractor from './Extractor';
 
-export default (file: string, options: ?DoctrineOptions, callback: Function): void => {
+export default (
+  file: string,
+  options: ?DoctrineOptions,
+  callback: Function,
+): void => {
   if (!callback && typeof options === 'function') {
     callback = options;
     options = null;
   }
 
   const collected = [];
-  fs.createReadStream(file, { encoding: 'utf8' })
+  fs
+    .createReadStream(file, { encoding: 'utf8' })
     .on('error', callback)
     .pipe(new Extractor(options))
     .on('error', callback)
