@@ -1,12 +1,11 @@
-import test from 'ava';
+/* eslint-env jest */
 import parseFile from '../parseFile';
 
 function createTests(lineending) {
-  test.cb(`Single line comments without options (${lineending})`, t => {
-    t.plan(2);
+  test(`Single line comments without options (${lineending})`, done => {
     parseFile(`${__dirname}/data/singleline_${lineending}`, (err, comments) => {
-      t.ifError(err);
-      t.deepEqual(comments, [
+      expect(err).toBeFalsy();
+      expect(comments).toEqual([
         {
           description: '',
           tags: [
@@ -18,15 +17,14 @@ function createTests(lineending) {
           ],
         },
       ]);
-      t.end();
+      done();
     });
   });
 
-  test.cb(`Multi line comments without options (${lineending})`, t => {
-    t.plan(2);
+  test(`Multi line comments without options (${lineending})`, done => {
     parseFile(`${__dirname}/data/multiline_${lineending}`, (err, comments) => {
-      t.ifError(err);
-      t.deepEqual(comments, [
+      expect(err).toBeFalsy();
+      expect(comments).toEqual([
         {
           description: 'Description',
           tags: [
@@ -38,18 +36,17 @@ function createTests(lineending) {
           ],
         },
       ]);
-      t.end();
+      done();
     });
   });
 
-  test.cb(`Single line comments with options (${lineending})`, t => {
-    t.plan(2);
+  test(`Single line comments with options (${lineending})`, done => {
     parseFile(
       `${__dirname}/data/singleline_${lineending}`,
       { lineNumbers: true },
       (err, comments) => {
-        t.ifError(err);
-        t.deepEqual(comments, [
+        expect(err).toBeFalsy();
+        expect(comments).toEqual([
           {
             description: '',
             tags: [
@@ -62,19 +59,18 @@ function createTests(lineending) {
             ],
           },
         ]);
-        t.end();
+        done();
       },
     );
   });
 
-  test.cb(`Multi line comments with options (${lineending})`, t => {
-    t.plan(2);
+  test(`Multi line comments with options (${lineending})`, done => {
     parseFile(
       `${__dirname}/data/multiline_${lineending}`,
       { lineNumbers: true },
       (err, comments) => {
-        t.ifError(err);
-        t.deepEqual(comments, [
+        expect(err).toBeFalsy();
+        expect(comments).toEqual([
           {
             description: 'Description',
             tags: [
@@ -87,7 +83,7 @@ function createTests(lineending) {
             ],
           },
         ]);
-        t.end();
+        done();
       },
     );
   });

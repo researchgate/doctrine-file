@@ -1,15 +1,15 @@
-import test from 'ava';
+/* eslint-env jest */
 import fs from 'fs';
 import parseFileContent from '../parseFileContent';
 
 function createTests(lineending) {
-  test(`Single line comments (${lineending})`, t => {
+  test(`Single line comments (${lineending})`, () => {
     const content = fs.readFileSync(
       `${__dirname}/data/singleline_${lineending}`,
     );
     const comments = parseFileContent(content);
 
-    t.deepEqual(comments, [
+    expect(comments).toEqual([
       {
         description: '',
         tags: [
@@ -23,13 +23,13 @@ function createTests(lineending) {
     ]);
   });
 
-  test(`Multi line comments (${lineending})`, t => {
+  test(`Multi line comments (${lineending})`, () => {
     const content = fs.readFileSync(
       `${__dirname}/data/multiline_${lineending}`,
     );
     const comments = parseFileContent(content);
 
-    t.deepEqual(comments, [
+    expect(comments).toEqual([
       {
         description: 'Description',
         tags: [
