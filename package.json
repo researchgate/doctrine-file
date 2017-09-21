@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
-    "build": "babel src --out-dir lib --ignore __tests__",
+    "build": "cross-env BABEL_ENV=production BABEL_OUTPUT=cjs babel src --out-dir lib --ignore __tests__",
     "flow": "flow",
     "format": "prettier --write --trailing-comma all --single-quote \"src/**/*.js\"",
     "lint": "eslint src",
@@ -13,8 +13,7 @@
     "preversion": "npm test",
     "prepublish": "npm run clean && npm run build",
     "test": "npm run lint && npm run flow && npm run test-only",
-    "test-only": "jest --collectCoverage",
-    "watch": "babel src --out-dir lib --ignore __tests__ --watch"
+    "test-only": "jest --collectCoverage"
   },
   "repository": {
     "type": "git",
@@ -35,15 +34,12 @@
   },
   "homepage": "https://github.com/researchgate/doctrine-file#readme",
   "devDependencies": {
+    "@researchgate/babel-preset-rg": "^1.0.1",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-jest": "^21.0.2",
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "babel-plugin-transform-object-rest-spread": "^6.20.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-register": "^6.14.0",
+    "cross-env": "^5.0.5",
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-import": "^2.7.0",
