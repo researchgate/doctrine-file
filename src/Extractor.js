@@ -3,9 +3,9 @@ import { parse } from 'doctrine';
 import { Transform } from 'stream';
 
 const jsdoc = {
-  singleLine: /^\s*(\/\*{2}\s*.*\s*\*\/)\s*$/,
+  singleLine: /^\s*(\/\*{2}.*\*\/)\s*$/,
   start: /^\s*\/\*{2}\s*$/,
-  line: /^\s*\*\s*.*$/,
+  line: /^\s*\*.*$/,
   end: /^\s*\*\/\s*$/,
 };
 
@@ -38,7 +38,7 @@ export default class Extractor extends Transform {
     const match = line.match(jsdoc.singleLine);
     if (match) {
       // singleline
-      return this._addDoc(match[1]);
+      return this._addDoc(match[1].trim());
     } else if (line.match(jsdoc.start)) {
       // start multiline
       this._addLine(line, true);
