@@ -58,7 +58,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "prettier --trailing-comma all --single-quote --write",
+      "yarn lint --fix",
       "git add"
     ]
   },
