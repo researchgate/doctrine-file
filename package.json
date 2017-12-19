@@ -13,7 +13,7 @@
     "flow": "flow",
     "format": "prettier --write --trailing-comma all --single-quote \"src/**/*.js\"",
     "lint": "eslint src",
-    "precommit": "run-s test lint-staged",
+    "precommit": "yarn test && lint-staged",
     "prerelease": "run-p lint flow test",
     "prepare": "run-s clean build",
     "release": "standard-version",
