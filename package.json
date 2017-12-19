@@ -9,14 +9,15 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "cross-env BABEL_ENV=production BABEL_OUTPUT=cjs babel src --out-dir lib --ignore __tests__",
-    "flow": "flow",
+    "create-github-release": "conventional-github-releaser -p angular",
     "format": "prettier --write --trailing-comma all --single-quote \"src/**/*.js\"",
     "lint": "eslint src",
-    "precommit": "npm test && lint-staged",
-    "preversion": "npm test",
-    "prepublish": "npm run clean && npm run build",
-    "test": "npm run lint && npm run flow && npm run test-only",
-    "test-only": "jest --collectCoverage"
+    "precommit": "run-s test lint-staged",
+    "prerelease": "run-p lint flow test",
+    "prepare": "run-s clean build",
+    "release": "standard-version",
+    "test": "jest",
+    "test:coverage": "yarn test --coverage"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-jest": "^22.0.3",
+    "conventional-github-releaser": "^2.0.0",
     "cross-env": "^5.0.5",
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.4.0",
@@ -53,8 +55,10 @@
     "husky": "^0.14.3",
     "jest": "^22.0.3",
     "lint-staged": "^6.0.0",
+    "npm-run-all": "^4.1.2",
     "prettier": "^1.6.1",
-    "rimraf": "^2.5.0"
+    "rimraf": "^2.5.0",
+    "standard-version": "^4.2.0"
   },
   "dependencies": {
     "doctrine": "^2.0.0"
