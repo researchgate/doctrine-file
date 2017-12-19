@@ -35,11 +35,11 @@
   "homepage": "https://github.com/researchgate/doctrine-file#readme",
   "devDependencies": {
     "@researchgate/babel-preset-rg": "^1.0.1",
-    "@researchgate/eslint-config-rg-node-babel": "^1.0.1",
+    "@researchgate/eslint-config-rg-node-babel": "^2.0.0",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
-    "babel-jest": "^21.0.2",
+    "babel-jest": "^22.0.3",
     "cross-env": "^5.0.5",
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.4.0",
@@ -48,7 +48,7 @@
     "eslint-plugin-prettier": "^2.3.0",
     "flow-bin": "^0.61.0",
     "husky": "^0.14.3",
-    "jest": "^21.0.2",
+    "jest": "^22.0.3",
     "lint-staged": "^6.0.0",
     "prettier": "^1.6.1",
     "rimraf": "^2.5.0"
