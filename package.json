@@ -3,6 +3,9 @@
   "version": "1.0.3",
   "description": "File-Reader for the Doctrine JSDoc Parser",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "clean": "rimraf lib",
     "build": "cross-env BABEL_ENV=production BABEL_OUTPUT=cjs babel src --out-dir lib --ignore __tests__",
