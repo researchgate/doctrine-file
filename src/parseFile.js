@@ -10,8 +10,7 @@ export default (file: string, options: ?DoctrineOptions, callback: Function): vo
     }
 
     const collected = [];
-    fs
-        .createReadStream(file, { encoding: 'utf8' })
+    fs.createReadStream(file, { encoding: 'utf8' })
         .on('error', callback)
         .pipe(new Extractor(options))
         .on('error', callback)
