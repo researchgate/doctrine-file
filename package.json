@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rimraf lib",
-    "build": "cross-env BABEL_ENV=production BABEL_OUTPUT=cjs babel src --out-dir lib --ignore __tests__",
+    "build": "cross-env BABEL_ENV=production BABEL_OUTPUT=cjs babel src --out-dir lib --ignore '**/__tests__'",
     "create-github-release": "conventional-github-releaser -p angular",
     "flow": "flow",
     "format": "prettier --write --trailing-comma all --single-quote \"src/**/*.js\"",
