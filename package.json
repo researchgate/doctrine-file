@@ -44,7 +44,7 @@
     "@researchgate/babel-preset-rg": "^2.0.0-beta.2",
     "@researchgate/eslint-config-rg-node-babel": "^4.0.0",
     "babel-core": "^7.0.0-0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.0.1",
     "conventional-github-releaser": "^3.1.2",
     "cross-env": "^5.0.5",
