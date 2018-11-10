@@ -63,7 +63,7 @@
     "standard-version": "^4.2.0"
   },
   "dependencies": {
-    "doctrine": "^2.0.0"
+    "doctrine": "^3.0.0"
   },
   "lint-staged": {
     "src/**/*.js": [
