@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/researchgate/doctrine-file#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.0.0-beta.49",
     "@researchgate/babel-preset-rg": "^2.0.0-beta.2",
     "@researchgate/eslint-config-rg-node-babel": "^4.0.0",
